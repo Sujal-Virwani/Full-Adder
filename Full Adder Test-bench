@@ -1,0 +1,22 @@
+module Full_Adder_TB;
+  reg in_a,in_b,in_c;
+  wire sum,carry;
+  Full_Adder FA1(sum,carry,in_a,in_b,in_c);
+  initial
+    begin
+      #5; in_a=0;in_b=0;in_c=0;
+      #5; in_a=0;in_b=0;in_c=1;
+      #5; in_a=0;in_b=1;in_c=0;
+      #5; in_a=0;in_b=1;in_c=1;
+      #5; in_a=1;in_b=0;in_c=0;
+      #5; in_a=1;in_b=0;in_c=1;
+      #5; in_a=1;in_b=1;in_c=0;
+      #5; in_a=1;in_b=1;in_c=1;
+      #5; $stop;
+    end
+  initial
+    begin
+      $dumpfile("dump.vcd");
+      $dumpvars(1);
+    end
+endmodule
